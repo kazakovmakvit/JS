@@ -2,7 +2,7 @@
 
 ## Часть 1. Работа с макетом
 
-По заданному макету создать вёрстку главной страницы (без использования vue).
+По [заданному](https://www.figma.com/file/okdYD45Tj2JpKsNASccUmf/Interior-Design-Webflow-Website-Template-(Community)-(Copy)-(Copy)?type=design&node-id=101-14&mode=design "figma.com") макету создать вёрстку главной страницы (без использования vue).
 
 Задание по работе с макетом направлено на подготовку проекта к итоговой аттестации.
 
