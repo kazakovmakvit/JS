@@ -2,7 +2,7 @@
 
 ## Часть 1. Работа с макетом
 
-Продолжаем создание [макета](!<https://www.figma.com/file/okdYD45Tj2JpKsNASccUmf/Interior-Design-Webflow-Website-Template-(Community)-(Copy)-(Copy)?type=design&node-id=209-15&t=VK2zHccBmhGGNIzu-0>):
+Продолжаем создание [макета](https://www.figma.com/file/okdYD45Tj2JpKsNASccUmf/Interior-Design-Webflow-Website-Template-(Community)-(Copy)-(Copy)?type=design&node-id=209-15&mode=design "Figma.com"):
 
 — Реализовать страницу Blog (Домашнее задание 2).
 
