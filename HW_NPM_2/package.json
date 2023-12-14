@@ -1,0 +1,18 @@
+{
+  "name": "generation-pasword",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "default": "node main.js length=14 lowCase=true uppCase=true numCase=true",
+    "default-not-number": "node main.js length=14 lowCase=true uppCase=true numCase=false",
+    "default-no-uppCase": "node main.js length=14 lowCase=true uppCase=false numCase=true",
+    "default-only-number": "node main.js length=16 lowCase=false uppCase=false numCase=true",
+    "default-only-letters": "node main.js length=16 lowCase=true uppCase=true numCase=false"
+  },
+  "keywords": [],
+  "author": "https://github.com/kazakovmakvit",
+  "license": "ISC",
+  "dependencies": {
+  }
+}
