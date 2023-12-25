@@ -1,30 +1,40 @@
-'use strict';
-
 const express = require('express');
+const app = express();
 const fs = require('fs');
 const path = require('path');
+port = 3000;
 
-const app = express();
 
+app.use(express.json());
 
-const updateCounterValue = function updateCounter(data) {
-    fs.writeFileSync(path.join(__dirname, 'public', 'data.json'), JSON.stringify(data));
-}
-const counterValue = JSON.parse(fs.readFileSync('public/data.json').toString());
-
-app.get('/', (req, res) => {
-    counterValue.main = counterValue.main + 1;
-    updateCounterValue(counterValue);
-    res.send(`Home Page<br>Views: ${counterValue.main}<br><a href="/about">About</a>`);
+app.get('/users', (req, res) => {
+    const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8'));
+    res.send({data});
 });
 
-app.get('/about', (req, res) => {
-    counterValue.about = counterValue.about + 1;
-    updateCounterValue(counterValue)
-    res.send(`About Page<br>Views: ${counterValue.about}<br><a href="/">Main Page</a>`);
+app.post('/users', (req, res) => {
+    const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8'));
+    data.push({id:data.length + 1, ...req.body});
+    fs.writeFileSync(path.join(__dirname, 'data.json'), JSON.stringify(data));
+    res.send({data});
 });
 
-const port = 3000;
+app.put('/users/:id', (req, res) => {
+    const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8'));
+    const index = data.findIndex(user => user.id === parseInt(req.params.id));
+    data[index] = {id: req.params.id, ...req.body};
+    fs.writeFileSync(path.join(__dirname, 'data.json'), JSON.stringify(data));
+    res.send({data});
+});
+
+app.delete('/users/:id', (req, res) => {
+    const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8'));
+    const index = data.findIndex(user => user.id === parseInt(req.params.id));
+    data.splice(index, 1);
+    fs.writeFileSync(path.join(__dirname, 'data.json'), JSON.stringify(data));
+    res.send({data});
+})
+
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Example app listening on port ${port}`)
 });
